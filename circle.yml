@@ -1,0 +1,14 @@
+machine:
+  timezone: Asia/Tokyo
+  python:
+    version: 2.7.10
+
+dependencies:
+  pre:
+    - pip install ansible ansible-lint
+
+test:
+  override:
+    - ansible-playbook main.yml --syntax-check
+    - ansible-lint main.yml
+    - exit 0

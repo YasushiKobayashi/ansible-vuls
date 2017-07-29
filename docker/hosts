@@ -1,0 +1,9 @@
+[bot_master]
+localhost
+
+[master:children]
+bot_master
+
+[master:vars]
+ansible_connection=local
+env=docker

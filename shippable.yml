@@ -1,0 +1,23 @@
+language: python
+python:
+   - 2.7
+install:
+  - docker pull golang:1.8
+
+build:
+  ci:
+    - docker build -f -t vuls .
+
+  on_success:
+    - docker rmi -f vuls
+  on_failure:
+    - docker rmi -f vuls
+
+integrations:
+  notifications:
+    - integrationName: my-slack
+      type: slack
+      recipients:
+        - "#build"
+      on_success: always
+      on_failure: always

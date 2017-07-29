@@ -1,0 +1,13 @@
+[vagrant]
+192.168.34.20
+
+[vagrant:vars]
+ssh_remote_user=vagrant
+ansible_ssh_user=vagrant
+ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+ansible_ssh_pass=vagrant
+ansible_become_pass=vagrant
+env=vagrant
+owner=vagrant
+group=vagrant
+

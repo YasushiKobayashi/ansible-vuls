@@ -1,0 +1,95 @@
+---
+
+- name: set up
+  yum: name={{ item  }}
+  with_items:
+    - sqlite
+    - git
+    - gcc
+    - make
+    - yum-plugin-changelog
+
+- name: mkdir vuls log
+  file:
+    path: /var/log/vuls
+    state: directory
+    mode: 0700
+
+- name: mkdir gopath
+  file:
+    path: '{{ vuls_path }}'
+    state: directory
+  become: false
+
+- name: set direnv
+  become: false
+  lineinfile:
+    dest: ~/.bashrc
+    line: 'eval "$(direnv hook bash)"'
+
+- name: load bash_profile
+  shell: source ~/.bash_profile
+  become: false
+
+- name: set envrc
+  copy:
+    src: src/.envrc
+    dest: '{{ vuls_path }}'
+    mode: 0755
+    force: yes
+  become: false
+
+- name: mkdir kotakanbe
+  shell: 'mkdir -p {{ vuls_path  }}/src/github.com/kotakanbe/go-cve-dictionary'
+  args:
+    executable: /bin/bash
+  become: false
+
+- name: install go-cve-dictionary
+  git:
+    repo: https://github.com/kotakanbe/go-cve-dictionary.git
+    dest: '{{ vuls_path }}/src/github.com/kotakanbe/go-cve-dictionary'
+  become: false
+
+- name: make cve
+  shell: make install
+  args:
+    chdir: '{{ vuls_path }}/src/github.com/kotakanbe/go-cve-dictionary'
+    executable: /bin/bash
+  become: false
+
+- name: install jvn
+  shell: for i in `seq 2002 $(date +"%Y")`; do go-cve-dictionary fetchnvd -years $i; done
+  args:
+    chdir: '{{ vuls_path }}'
+    executable: /bin/bash
+  become: false
+
+- name: install jvn japanese
+  shell: for i in `seq 1998 $(date +"%Y")`; do go-cve-dictionary fetchjvn -years $i; done
+  args:
+    chdir: '{{ vuls_path }}'
+    executable: /bin/bash
+  become: false
+
+- name: mkdir vuls
+  shell: 'mkdir -p {{ vuls_path }}/src/github.com/future-architect/vuls'
+  become: false
+
+- name: install vuls
+  git:
+    repo: https://github.com/future-architect/vuls.git
+    dest: '{{ vuls_path }}/src/github.com/future-architect/vuls'
+  become: false
+
+- name: make vuls
+  shell: make install
+  args:
+    chdir: '{{ vuls_path }}/src/github.com/future-architect/vuls'
+    executable: /bin/bash
+  become: false
+
+- name: set config
+  copy:
+    src: src/config.tml
+    dest: '{{ vuls_path }}/config.tml'

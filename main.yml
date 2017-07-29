@@ -1,0 +1,8 @@
+#!/usr/bin/env ansible-playbook -i hosts
+- hosts: master
+  vars:
+    - vuls_path: /go/app
+  roles:
+    - Yasushikobayashi.ansible-direnv
+  tasks:
+    - include: 'tasks/main.yml'
