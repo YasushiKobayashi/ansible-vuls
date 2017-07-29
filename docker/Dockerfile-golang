@@ -1,4 +1,4 @@
-FROM centos:6
+FROM golang:1.8
 MAINTAINER Yasushi Kobayashi <ptpadan@gmail.com>
 
 RUN yum -y update && \

@@ -6,7 +6,7 @@ install:
 
 build:
   ci:
-    - docker build -f -t vuls .
+    - docker build -f docker/Dockerfile-golang -t vuls .
 
   on_success:
     - docker rmi -f vuls
