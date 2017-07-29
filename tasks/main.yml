@@ -88,8 +88,3 @@
     chdir: '{{ vuls_path }}/src/github.com/future-architect/vuls'
     executable: /bin/bash
   become: false
-
-- name: set config
-  copy:
-    src: src/config.tml
-    dest: '{{ vuls_path }}/config.tml'

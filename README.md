@@ -2,8 +2,6 @@
 [![Run Status](https://api.shippable.com/projects/597c960a7f0cc006000e6eef/badge?branch=master)](https://app.shippable.com/github/YasushiKobayashi/ansible-vuls)
 [![Coverage Badge](https://api.shippable.com/projects/597c960a7f0cc006000e6eef/coverageBadge?branch=master)](https://app.shippable.com/github/YasushiKobayashi/ansible-vuls)
 
-
-
 ### install vuls roll
 https://github.com/future-architect/vuls/blob/master/README.ja.md
 
@@ -12,6 +10,21 @@ https://github.com/future-architect/vuls/blob/master/README.ja.md
 ### ansible role install vuls
 - cenos6
 - amazone-linux
+
+### default vars
+Install vuls in this directory.
+
+```
+vuls_path: ~/vuls
+```
+
+### set your config.toml
+```yml
+- name: set config
+  copy:
+    src: src/config.toml
+    dest: '{{ vuls_path }}/config.toml'
+```
 
 ### dependence
 https://github.com/YasushiKobayashi/ansible-direnv

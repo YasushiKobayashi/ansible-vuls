@@ -6,3 +6,7 @@
     - Yasushikobayashi.ansible-direnv
   tasks:
     - include: 'tasks/main.yml'
+    - name: set config
+      copy:
+        src: src/config.toml
+        dest: '{{ vuls_path }}/config.toml'
