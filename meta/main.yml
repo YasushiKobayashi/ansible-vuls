@@ -14,4 +14,4 @@ galaxy_info:
     - vuls
 
 dependencies:
-  - { role: YasushiKobayashi.envrc }
+  - { role: YasushiKobayashi.direnv }
