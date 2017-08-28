@@ -22,10 +22,6 @@
     state: directory
   become: false
 
-- name: load bash_profile
-  shell: source ~/.bash_profile
-  become: false
-
 - name: mkdir kotakanbe
   file:
     path: '{{ go_path  }}/src/github.com/kotakanbe/go-cve-dictionary'

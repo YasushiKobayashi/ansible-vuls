@@ -3,7 +3,7 @@ MAINTAINER Yasushi Kobayashi <ptpadan@gmail.com>
 
 RUN yum -y update && \
     yum -y install epel-release && \
-    yum -y install ansible
+    yum -y install ansible make
 
 WORKDIR /ansible
 COPY ./ /ansible
