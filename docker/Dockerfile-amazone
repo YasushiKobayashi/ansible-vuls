@@ -1,6 +1,8 @@
 FROM ptpadan1246/amazonlinux_ansible
 MAINTAINER Yasushi Kobayashi <ptpadan@gmail.com>
 
+RUN yum -y install make
+
 WORKDIR /ansible
 COPY ./ /ansible
 RUN ansible-galaxy install YasushiKobayashi.golang -p roles
