@@ -3,6 +3,10 @@ MAINTAINER Yasushi Kobayashi <ptpadan@gmail.com>
 
 RUN yum -y install make
 
+ENV PATH $PATH:/usr/local/go/bin
+ENV GOPATH $HOME/vuls
+ENV PATH $PATH:$GOPATH/bin
+
 WORKDIR /ansible
 COPY ./ /ansible
 RUN ansible-galaxy install YasushiKobayashi.golang -p roles

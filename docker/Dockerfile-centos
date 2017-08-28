@@ -5,6 +5,10 @@ RUN yum -y update && \
     yum -y install epel-release && \
     yum -y install ansible make
 
+ENV PATH $PATH:/usr/local/go/bin
+ENV GOPATH $HOME/vuls
+ENV PATH $PATH:$GOPATH/bin
+
 WORKDIR /ansible
 COPY ./ /ansible
 RUN ansible-galaxy install YasushiKobayashi.golang -p roles
