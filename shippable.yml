@@ -7,8 +7,8 @@ install:
 
 build:
   ci:
-    - docker build -f docker/Dockerfile-centos -t centos .
-    - docker build -f docker/Dockerfile-amazone -t amazone .
+    - docker build -f docker/Dockerfile-centos -t centos --build-arg GOPATH=$HOME/vuls .
+    - docker build -f docker/Dockerfile-amazone -t amazone --build-arg GOPATH=$HOME/vuls .
 
   on_success:
     - docker rmi -f centos
