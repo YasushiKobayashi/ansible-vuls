@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.org/YasushiKobayashi/ansible-vuls.svg?branch=master)](https://travis-ci.org/YasushiKobayashi/ansible-vuls)
-[![Run Status](https://api.shippable.com/projects/597c960a7f0cc006000e6eef/badge?branch=master)](https://app.shippable.com/github/YasushiKobayashi/ansible-vuls)
-[![Coverage Badge](https://api.shippable.com/projects/597c960a7f0cc006000e6eef/coverageBadge?branch=master)](https://app.shippable.com/github/YasushiKobayashi/ansible-vuls)
-
 ### install vuls roll
 https://github.com/future-architect/vuls/blob/master/README.ja.md
 
@@ -15,7 +11,8 @@ https://github.com/future-architect/vuls/blob/master/README.ja.md
 Install vuls in this directory.
 
 ```
-vuls_path: ~/vuls
+go_path: ~/vuls
+vuls_user: ec2-user
 ```
 
 ### set your config.toml
@@ -25,9 +22,6 @@ vuls_path: ~/vuls
     src: src/config.toml
     dest: '{{ vuls_path }}/config.toml'
 ```
-
-### dependence
-https://github.com/YasushiKobayashi/ansible-direnv
 
 ### pre install golang
 - install golang

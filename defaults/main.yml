@@ -1,3 +1,4 @@
 ---
 
-vuls_path: ~/vuls
+vuls_user: ec2-user
+go_path: ~/vuls

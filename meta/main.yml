@@ -12,6 +12,3 @@ galaxy_info:
 
   galaxy_tags:
     - vuls
-
-dependencies:
-  - { role: YasushiKobayashi.direnv }
