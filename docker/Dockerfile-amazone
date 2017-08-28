@@ -3,4 +3,5 @@ MAINTAINER Yasushi Kobayashi <ptpadan@gmail.com>
 
 WORKDIR /ansible
 COPY ./ /ansible
+RUN ansible-galaxy install YasushiKobayashi.golang -p roles
 RUN ansible-playbook -i 'localhost' -c 'local' main.yml

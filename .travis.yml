@@ -7,7 +7,6 @@ before_install:
   - docker pull centos:6
 
 script:
-  - ansible-galaxy install YasushiKobayashi.golang -p roles
   - docker build -f docker/Dockerfile-centos -t centos --build-arg GOPATH=/HOME/vuls .
   - docker build -f docker/Dockerfile-amazone -t amazone --build-arg GOPATH=/HOME/vuls .
 

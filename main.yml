@@ -10,3 +10,6 @@
     - name: set config
       copy:
         src: src/config.toml
+
+    - name: config test
+      shell: vuls configtest
