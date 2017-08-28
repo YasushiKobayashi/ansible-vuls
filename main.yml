@@ -3,6 +3,7 @@
   connection: local
   vars:
     - vuls_path: ~/vuls
+      vuls_user: root
     - env: test
   roles:
     - YasushiKobayashi.golang
