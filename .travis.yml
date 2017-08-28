@@ -3,10 +3,13 @@ services:
   - docker
 
 before_install:
-  - docker pull golang:1.8
+  - docker pull ptpadan1246/amazonlinux_ansible
+  - docker pull centos:6
 
 script:
-  - docker build -f docker/Dockerfile-golang -t vuls .
+  - ansible-galaxy install YasushiKobayashi.golang -p roles
+  - docker build -f docker/Dockerfile-centos -t centos --build-arg GOPATH=/HOME/vuls .
+  - docker build -f docker/Dockerfile-amazone -t amazone --build-arg GOPATH=/HOME/vuls .
 
 notifications:
   slack:

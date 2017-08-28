@@ -1,10 +1,10 @@
-FROM golang:1.8
+FROM centos:6
 MAINTAINER Yasushi Kobayashi <ptpadan@gmail.com>
 
 RUN yum -y update && \
     yum -y install epel-release && \
-    yum -y install ansible git
+    yum -y install ansible
 
 WORKDIR /ansible
 COPY ./ /ansible
-RUN ansible-playbook -i docker/hosts main.yml
+RUN ansible-playbook -i 'localhost' -c 'local' main.yml

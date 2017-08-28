@@ -1,12 +1,12 @@
 #!/usr/bin/env ansible-playbook -i hosts
 - hosts: master
   vars:
-    - vuls_path: /go/app
+    - vuls_path: ~/vuls
+    - env: test
   roles:
-    - Yasushikobayashi.ansible-direnv
+    - YasushiKobayashi.golang
   tasks:
     - include: 'tasks/main.yml'
     - name: set config
       copy:
         src: src/config.toml
-        dest: '{{ vuls_path }}/config.toml'

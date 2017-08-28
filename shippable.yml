@@ -2,16 +2,20 @@ language: python
 python:
    - 2.7
 install:
-  - docker pull golang:1.8
+  - docker pull ptpadan1246/amazonlinux_ansible
+  - docker pull centos:6
 
 build:
   ci:
-    - docker build -f docker/Dockerfile-golang -t vuls .
+    - docker build -f docker/Dockerfile-centos -t centos .
+    - docker build -f docker/Dockerfile-amazone -t amazone .
 
   on_success:
-    - docker rmi -f vuls
+    - docker rmi -f centos
+    - docker rmi -f amazone
   on_failure:
-    - docker rmi -f vuls
+    - docker rmi -f centos
+    - docker rmi -f amazone
 
 integrations:
   notifications:

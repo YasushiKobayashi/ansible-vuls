@@ -22,22 +22,8 @@
     state: directory
   become: false
 
-- name: set direnv
-  become: false
-  lineinfile:
-    dest: ~/.bashrc
-    line: 'eval "$(direnv hook bash)"'
-
 - name: load bash_profile
   shell: source ~/.bash_profile
-  become: false
-
-- name: set envrc
-  copy:
-    src: src/.envrc
-    dest: '{{ go_path }}'
-    mode: 0755
-    force: yes
   become: false
 
 - name: mkdir kotakanbe
