@@ -10,4 +10,4 @@ ENV PATH $PATH:$GOPATH/bin
 WORKDIR /ansible
 COPY ./ /ansible
 RUN ansible-galaxy install YasushiKobayashi.golang -p roles
-RUN ansible-playbook -i 'localhost' -c 'local' main.yml
+RUN ansible-playbook -i 'localhost' -c 'local' main.yml -vv

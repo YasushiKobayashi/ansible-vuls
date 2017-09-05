@@ -33,6 +33,7 @@
   git:
     repo: https://github.com/kotakanbe/go-cve-dictionary.git
     dest: '{{ go_path }}/src/github.com/kotakanbe/go-cve-dictionary'
+    force: true
   become: false
 
 - name: make cve
@@ -67,6 +68,7 @@
   git:
     repo: https://github.com/kotakanbe/goval-dictionary.git
     dest: '{{ go_path }}/src/github.com/kotakanbe/goval-dictionary'
+    force: true
   become: false
 
 
@@ -88,6 +90,7 @@
   git:
     repo: https://github.com/future-architect/vuls.git
     dest: '{{ go_path }}/src/github.com/future-architect/vuls'
+    force: true
   become: false
 
 - name: make vuls
